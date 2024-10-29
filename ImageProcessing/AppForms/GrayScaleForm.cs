@@ -4,7 +4,7 @@ namespace ImageProcessing.AppForms
 {
     public partial class GrayScaleForm : Form
     {
-         
+
         public GrayScaleForm(Bitmap bmp)
         {
             InitializeComponent();

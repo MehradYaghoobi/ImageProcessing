@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ImageProcessing.Config
+﻿namespace ImageProcessing.Config
 {
     public class MainConfig
     {
@@ -13,7 +7,7 @@ namespace ImageProcessing.Config
             GrayScale, Histogram, HistogramEq, Negative, Thresholding
         }
 
-        public static void ImageImprot(ref OpenFileDialog file,ref PictureBox pic)
+        public static void ImageImprot(ref OpenFileDialog file, ref PictureBox pic)
         {
             file.Title = "Select a Picture";
             file.Filter = "Image Files (*.bmp, *.gif, *.jpg, *.png)|*.bmp; *.gif*;*.jpg;,*.png;";
@@ -30,7 +24,7 @@ namespace ImageProcessing.Config
             }
         }
 
-        public static void EnableAction (ref ComboBox cbo,ref Button btn)
+        public static void EnableAction(ref ComboBox cbo, ref Button btn)
         {
             cbo.Enabled = true;
             btn.Enabled = true;

@@ -18,7 +18,7 @@ namespace ImageProcessing.Algorithms
             Bitmap rgbbmp = new(Width, Height);
 
             int limitedGray = (int)(limitedRed * 0.299 + limitedGreen * 0.587 + limitedBlue * 0.114);
-            
+
             for (int i = 0; i < Width; i++)
             {
                 for (int j = 0; j < Height; j++)

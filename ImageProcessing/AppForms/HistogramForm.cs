@@ -16,8 +16,8 @@ namespace ImageProcessing.AppForms
             picBlue.Image = bitmaps[1];
             picGreen.Image = bitmaps[2];
 
-            ChartConfig.ChartAddPoints(chtRed,chtGreen,chtBlue,
-                his.RedHis,his.GreenHis,his.BlueHis);
+            ChartConfig.ChartAddPoints(chtRed, chtGreen, chtBlue,
+                his.RedHis, his.GreenHis, his.BlueHis);
         }
     }
 }
