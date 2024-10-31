@@ -55,6 +55,11 @@ namespace ImageProcessing.AppForms
                     ThresholdingForm threshold = new(bmp);
                     threshold.Show();
                     break;
+
+                case 5:
+                    SpatialFiltering spatial = new(bmp);
+                    spatial.Show();
+                    break;
             }
         }
     }

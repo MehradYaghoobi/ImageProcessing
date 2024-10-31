@@ -32,7 +32,6 @@
             lblOrginal = new Label();
             BtnExit = new Button();
             BtnImport = new Button();
-            BtnConfig = new Button();
             BtnStart = new Button();
             cboAlgo = new ComboBox();
             openFileDialog = new OpenFileDialog();
@@ -71,7 +70,7 @@
             // 
             // BtnImport
             // 
-            BtnImport.Location = new Point(329, 12);
+            BtnImport.Location = new Point(329, 27);
             BtnImport.Name = "BtnImport";
             BtnImport.Size = new Size(100, 30);
             BtnImport.TabIndex = 3;
@@ -79,18 +78,9 @@
             BtnImport.UseVisualStyleBackColor = true;
             BtnImport.Click += BtnImport_Click;
             // 
-            // BtnConfig
-            // 
-            BtnConfig.Location = new Point(329, 120);
-            BtnConfig.Name = "BtnConfig";
-            BtnConfig.Size = new Size(100, 30);
-            BtnConfig.TabIndex = 4;
-            BtnConfig.Text = "Config";
-            BtnConfig.UseVisualStyleBackColor = true;
-            // 
             // BtnStart
             // 
-            BtnStart.Location = new Point(329, 170);
+            BtnStart.Location = new Point(329, 152);
             BtnStart.Name = "BtnStart";
             BtnStart.Size = new Size(100, 30);
             BtnStart.TabIndex = 5;
@@ -101,7 +91,7 @@
             // cboAlgo
             // 
             cboAlgo.FormattingEnabled = true;
-            cboAlgo.Location = new Point(308, 80);
+            cboAlgo.Location = new Point(308, 90);
             cboAlgo.Name = "cboAlgo";
             cboAlgo.Size = new Size(141, 23);
             cboAlgo.TabIndex = 6;
@@ -118,7 +108,6 @@
             ClientSize = new Size(458, 342);
             Controls.Add(cboAlgo);
             Controls.Add(BtnStart);
-            Controls.Add(BtnConfig);
             Controls.Add(BtnImport);
             Controls.Add(BtnExit);
             Controls.Add(lblOrginal);
@@ -138,7 +127,6 @@
         private Label lblOrginal;
         private Button BtnExit;
         private Button BtnImport;
-        private Button BtnConfig;
         private Button BtnStart;
         private ComboBox cboAlgo;
         private OpenFileDialog openFileDialog;

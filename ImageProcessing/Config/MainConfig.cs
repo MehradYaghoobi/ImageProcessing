@@ -4,7 +4,7 @@
     {
         public enum Algorithm
         {
-            GrayScale, Histogram, HistogramEq, Negative, Thresholding
+            GrayScale, Histogram, HistogramEq, Negative, Thresholding, SpatialFiltering
         }
 
         public static void ImageImprot(ref OpenFileDialog file, ref PictureBox pic)
