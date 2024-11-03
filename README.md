@@ -1,11 +1,11 @@
 It will be refactored
 ----------------------
-Grayscale
-Histogram
-Histogram Equalization
-Negative
-Thresholding
-Median Filter
-Spatial Filtering
+1-Grayscale
+2-Histogram
+3-Histogram Equalization
+4-Negative
+5-Thresholding
+6-Median Filter
+7-Spatial Filtering
 ----------------------
 Without using libraries like CV
