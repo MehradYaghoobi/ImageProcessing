@@ -1,18 +1,21 @@
 ﻿using ImageProcessing.Algorithms;
+using SpatialFiltering;
+using System.Windows.Forms;
 
 namespace ImageProcessing.AppForms
 {
     public partial class SpatialFiltering : Form
     {
-        public Bitmap Bmp;
+        public IImageSpatialFiltering ImageSpatialFilteringService { get; set; }
+        public Bitmap bitmap;
         public TableLayoutPanel matrixPanel;
         public MatrixBuilder currentMatrix;
         public SpatialFiltering(Bitmap bmp)
         {
             InitializeComponent();
-            Bmp = bmp;
+            bitmap = bmp;
             CboMatrix.Items.AddRange(new string[] { "Normal", "Lower Triangular", "Upper Triangular", "Diagonal", "Symmetric" });
-            cboMethod.Items.AddRange(new string[] { "Median", "Sharpen" });
+            cboMethod.Items.AddRange(new string[] { "Median", "Spatial" });
 
             matrixPanel = new TableLayoutPanel { Left = 140, Top = 10, Width = 760, Height = 400, AutoSize = true };
             this.Controls.Add(matrixPanel);
@@ -43,24 +46,40 @@ namespace ImageProcessing.AppForms
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            currentMatrix.PopulateMatrix(matrixPanel);
             
-            Algorithms.SpatialFiltering spatialFiltering = new(Bmp);
+            
             if (cboMethod.Text == "Median")
             {
-                PicExport.Image = spatialFiltering.SpatialFilteringMedianBuilder(matrixPanel);
+                int numberOfRows = int.Parse(TxtHeight.Text.ToString());
+                int numberOfColumns = int.Parse(TxtWidth.Text.ToString());
+                PicExport.Image = ImageSpatialFilteringService.MedianFilterProcessor(bitmap, numberOfColumns,numberOfRows);
             }
-            else if (cboMethod.Text == "Sharpen")
+            else if (cboMethod.Text == "Spatial")
             {
-                PicExport.Image = spatialFiltering.SharprnSpatialFilteringBuilder(matrixPanel);
+                currentMatrix.PopulateMatrix(matrixPanel);
+                int[,] matrix = currentMatrix.ConvertTableLayoutPanelToMatrix(matrixPanel);
+                PicExport.Image = ImageSpatialFilteringService.SharpenSpatialFilteringProcessor(bitmap, matrix);
             }
 
             matrixPanel.Hide();
             pictureBox1.Hide();
             PicExport.Show();
-            
+
         }
 
+        private void cboMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboMethod.SelectedItem.ToString() == "Median")
+            {
+                BtnGenerate.Enabled = false;
+                CboMatrix.Enabled = false;
+            }
+            else
+            {
+                BtnGenerate.Enabled = true;
+                CboMatrix.Enabled = true;
+            }
+        }
     }
 
 }

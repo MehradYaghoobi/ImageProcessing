@@ -5,11 +5,13 @@ namespace ImageProcessing.AppForms
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private readonly Managers.ServiceManager _serviceManager;
+        public MainForm(Managers.ServiceManager serviceManager)
         {
+            _serviceManager = serviceManager;
             InitializeComponent();
             MainConfig.AlgorithmSet(ref cboAlgo);
-            MainConfig.DisableAction(ref cboAlgo, ref BtnStart, ref BtnConfig);
+            MainConfig.DisableAction(ref cboAlgo, ref BtnStart);
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -25,42 +27,68 @@ namespace ImageProcessing.AppForms
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
+            Form form;
             Bitmap bmp = new(picOrginal.Image);
-            switch (cboAlgo.SelectedIndex)
+            switch (cboAlgo.SelectedItem?.ToString())
             {
-                case 0:
-                    GrayScaleForm gsf = new(bmp);
-                    gsf.Show();
+                case "GrayScale":
+                    form = new GrayScaleForm(bmp)
+                    {
+                        ImageGrayScaleService = _serviceManager.ImageGrayScaleService
+                    };
+                    form.Show();
                     break;
 
-                case 1:
-                    HistogramForm hisF = new(bmp);
-                    hisF.Show();
-                    break;
-
-
-                case 2:
-                    HistogramEqForm hisEq = new(bmp);
-                    hisEq.Show();
-                    break;
-
-
-                case 3:
-                    NegativeForm neg = new(bmp);
-                    neg.Show();
+                case "Histogram":
+                    form = new HistogramForm(bmp)
+                    {
+                        ImageHistogramService = _serviceManager.ImageHistogramService
+                    };
+                    form.Show();
                     break;
 
 
-                case 4:
-                    ThresholdingForm threshold = new(bmp);
-                    threshold.Show();
+                case "HistogramEqualization":
+                    form = new HistogramEqForm(bmp)
+                    {
+                        HisEqualizationService = _serviceManager.ImageHistogramEqualizationService
+                    };
+                    form.Show();
                     break;
 
-                case 5:
-                    SpatialFiltering spatial = new(bmp);
-                    spatial.Show();
+
+                case "Negative":
+                    form = new NegativeForm(bmp)
+                    {
+                        ImageNegativeService = _serviceManager.ImageNegativeService
+                    };
+                    form.Show();
+                    break;
+
+
+                case "Thresholding":
+                    form = new ThresholdingForm(bmp)
+                    {
+                        ImageThresholdingService = _serviceManager.ImageThresholdingService
+                    };
+                    form.Show();
+                    break;
+
+                case "SpatialFiltering":
+                    form = new SpatialFiltering(bmp)
+                    {
+                        ImageSpatialFilteringService = _serviceManager.ImageSpatialFilteringService
+                    };
+                    form.Show();
                     break;
             }
+        }
+
+        private void cboAlgo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboAlgo.SelectedItem.ToString() == "Thresholding" ||
+                cboAlgo.SelectedItem.ToString() == "SpatialFiltering") BtnStart.Text = "Config";
+            else BtnStart.Text = "Start";
         }
     }
 }

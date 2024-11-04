@@ -4,11 +4,12 @@
     {
         public enum Algorithm
         {
-            GrayScale, Histogram, HistogramEq, Negative, Thresholding, SpatialFiltering
+            GrayScale, Histogram, HistogramEqualization, Negative, Thresholding, SpatialFiltering
         }
 
         public static void ImageImprot(ref OpenFileDialog file, ref PictureBox pic)
         {
+
             file.Title = "Select a Picture";
             file.Filter = "Image Files (*.bmp, *.gif, *.jpg, *.png)|*.bmp; *.gif*;*.jpg;,*.png;";
             file.InitialDirectory = "C:";
@@ -30,11 +31,10 @@
             btn.Enabled = true;
         }
 
-        public static void DisableAction(ref ComboBox cbo, ref Button btn1, ref Button btn2)
+        public static void DisableAction(ref ComboBox cbo, ref Button btn1)
         {
             cbo.Enabled = false;
             btn1.Enabled = false;
-            btn2.Enabled = false;
         }
 
         public static void AlgorithmSet(ref ComboBox cbo)

@@ -49,6 +49,7 @@
             Controls.Add(picNegative);
             Name = "NegativeForm";
             Text = "NegativeForm";
+            Load += NegativeForm_Load;
             ((System.ComponentModel.ISupportInitialize)picNegative).EndInit();
             ResumeLayout(false);
         }

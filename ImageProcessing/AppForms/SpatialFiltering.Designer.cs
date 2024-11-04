@@ -81,7 +81,7 @@
             // CboMatrix
             // 
             CboMatrix.FormattingEnabled = true;
-            CboMatrix.Location = new Point(13, 100);
+            CboMatrix.Location = new Point(13, 145);
             CboMatrix.Name = "CboMatrix";
             CboMatrix.Size = new Size(105, 23);
             CboMatrix.TabIndex = 4;
@@ -118,10 +118,11 @@
             // cboMethod
             // 
             cboMethod.FormattingEnabled = true;
-            cboMethod.Location = new Point(13, 144);
+            cboMethod.Location = new Point(13, 102);
             cboMethod.Name = "cboMethod";
             cboMethod.Size = new Size(105, 23);
             cboMethod.TabIndex = 8;
+            cboMethod.SelectedIndexChanged += cboMethod_SelectedIndexChanged;
             // 
             // pictureBox1
             // 

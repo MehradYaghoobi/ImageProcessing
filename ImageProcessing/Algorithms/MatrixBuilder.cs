@@ -40,6 +40,7 @@
                         isEnabled = false;
                         cell.Text = "0";
                     }
+
                     cell.Enabled = isEnabled;
                     matrixPanel.Controls.Add(cell, j, i);
                 }
@@ -52,7 +53,7 @@
             {
                 for (int j = 0; j < Cols; j++)
                 {
-                    var cell = (TextBox)matrixPanel.GetControlFromPosition(j, i);
+                    var cell = (TextBox)matrixPanel.GetControlFromPosition(j, i)!;
                     Data[i, j] = float.Parse(cell.Text);
                     if (MatrixType == "Symmetric" && j > i)
                     {
@@ -61,6 +62,30 @@
                     }
                 }
             }
+        }
+
+        public int[,] ConvertTableLayoutPanelToMatrix(TableLayoutPanel panel)
+        {
+            int rows = panel.RowCount;
+            int cols = panel.ColumnCount;
+            int[,] matrix = new int[rows, cols];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    var cell = panel.GetControlFromPosition(j, i) as TextBox;
+                    if (cell != null && int.TryParse(cell.Text, out int value))
+                    {
+                        matrix[i, j] = value;
+                    }
+                    else
+                    {
+                        matrix[i, j] = 0;
+                    }
+                }
+            }
+
+            return matrix;
         }
     }
 }

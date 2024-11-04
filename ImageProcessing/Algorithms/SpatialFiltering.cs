@@ -55,7 +55,7 @@
             return filteredImage;
         }
 
-        public Bitmap SharprnSpatialFilteringBuilder(TableLayoutPanel filterPanel)
+        public Bitmap SharpenSpatialFilteringBuilder(TableLayoutPanel filterPanel)
         {
             Width = (short)bitmap.Width;
             Height = (short)bitmap.Height;

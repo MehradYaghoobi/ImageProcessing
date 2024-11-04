@@ -1,24 +1,23 @@
 ﻿using ImageProcessing.Algorithms;
+using Thresholding;
 
 namespace ImageProcessing.AppForms
 {
     public partial class ThresholdingForm : Form
     {
-        public Bitmap Bmp;
+        public IImageThresholding ImageThresholdingService { get; set; }
+        public Bitmap bitmap;
         public ThresholdingForm(Bitmap bmp)
         {
             InitializeComponent();
-            Bmp = bmp;
+            bitmap = bmp;
         }
 
         private void BtnRun_Click(object sender, EventArgs e)
         {
-            Bitmap[] bmpExport;
-            Thresholding thresh = new(Bmp);
-            bmpExport = thresh.ColorThresholding(TrbRed.Value, TrbGreen.Value, TrbBlue.Value);
+            Bitmap[] bmpExport = ImageThresholdingService.ColorThresholding(bitmap, TrbRed.Value, TrbGreen.Value, TrbBlue.Value);
             picRBG.Image = bmpExport[0];
             picGray.Image = bmpExport[1];
-
         }
 
         //----------------------------------------------------------------------------------------
@@ -67,7 +66,5 @@ namespace ImageProcessing.AppForms
         {
             e.Handled = !char.IsNumber(e.KeyChar);
         }
-
-
     }
 }

@@ -40,8 +40,8 @@
             // 
             // picOrginal
             // 
-            picOrginal.BackColor = Color.Gray;
-            picOrginal.Location = new Point(0, 0);
+            picOrginal.BackColor = Color.White;
+            picOrginal.Location = new Point(200, 14);
             picOrginal.Margin = new Padding(5);
             picOrginal.Name = "picOrginal";
             picOrginal.Size = new Size(300, 300);
@@ -52,7 +52,7 @@
             // lblOrginal
             // 
             lblOrginal.AutoSize = true;
-            lblOrginal.Location = new Point(12, 305);
+            lblOrginal.Location = new Point(146, 299);
             lblOrginal.Name = "lblOrginal";
             lblOrginal.Size = new Size(46, 15);
             lblOrginal.TabIndex = 1;
@@ -60,9 +60,9 @@
             // 
             // BtnExit
             // 
-            BtnExit.Location = new Point(329, 290);
+            BtnExit.Location = new Point(12, 266);
             BtnExit.Name = "BtnExit";
-            BtnExit.Size = new Size(100, 30);
+            BtnExit.Size = new Size(180, 30);
             BtnExit.TabIndex = 2;
             BtnExit.Text = "Exit";
             BtnExit.UseVisualStyleBackColor = true;
@@ -70,9 +70,9 @@
             // 
             // BtnImport
             // 
-            BtnImport.Location = new Point(329, 27);
+            BtnImport.Location = new Point(12, 31);
             BtnImport.Name = "BtnImport";
-            BtnImport.Size = new Size(100, 30);
+            BtnImport.Size = new Size(180, 30);
             BtnImport.TabIndex = 3;
             BtnImport.Text = "Import";
             BtnImport.UseVisualStyleBackColor = true;
@@ -80,9 +80,9 @@
             // 
             // BtnStart
             // 
-            BtnStart.Location = new Point(329, 152);
+            BtnStart.Location = new Point(12, 200);
             BtnStart.Name = "BtnStart";
-            BtnStart.Size = new Size(100, 30);
+            BtnStart.Size = new Size(180, 30);
             BtnStart.TabIndex = 5;
             BtnStart.Text = "Start";
             BtnStart.UseVisualStyleBackColor = true;
@@ -91,10 +91,11 @@
             // cboAlgo
             // 
             cboAlgo.FormattingEnabled = true;
-            cboAlgo.Location = new Point(308, 90);
+            cboAlgo.Location = new Point(12, 81);
             cboAlgo.Name = "cboAlgo";
-            cboAlgo.Size = new Size(141, 23);
+            cboAlgo.Size = new Size(180, 23);
             cboAlgo.TabIndex = 6;
+            cboAlgo.SelectedIndexChanged += cboAlgo_SelectedIndexChanged;
             // 
             // openFileDialog
             // 
@@ -104,8 +105,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gray;
-            ClientSize = new Size(458, 342);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(514, 342);
             Controls.Add(cboAlgo);
             Controls.Add(BtnStart);
             Controls.Add(BtnImport);

@@ -55,6 +55,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GrayScale";
+            Load += GrayScaleForm_Load;
             ((System.ComponentModel.ISupportInitialize)picGrayScale).EndInit();
             ResumeLayout(false);
         }

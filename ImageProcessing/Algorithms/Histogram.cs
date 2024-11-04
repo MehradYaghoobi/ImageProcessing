@@ -3,7 +3,7 @@ namespace ImageProcessing.Algorithms
 {
     public class Histogram(Bitmap bitmap) : GeneralParameters
     {
-        public int[] RedHis { get; set; } = new int[256];
+        public int[] RedHis { get;  set; } = new int[256];
         public int[] GreenHis { get; set; } = new int[256];
         public int[] BlueHis { get; set; } = new int[256];
         public Bitmap[] HistogramBuilder()

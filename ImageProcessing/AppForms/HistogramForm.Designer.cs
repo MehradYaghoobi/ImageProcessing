@@ -146,6 +146,7 @@
             Name = "HistogramForm";
             ShowIcon = false;
             Text = "HistogramForm";
+            Load += HistogramForm_Load;
             ((System.ComponentModel.ISupportInitialize)picRed).EndInit();
             ((System.ComponentModel.ISupportInitialize)picGreen).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBlue).EndInit();

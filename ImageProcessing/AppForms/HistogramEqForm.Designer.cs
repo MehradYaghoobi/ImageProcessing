@@ -118,6 +118,7 @@
             Controls.Add(chtRed);
             Name = "HistogramEqForm";
             Text = "HistogramEqForm";
+            Load += HistogramEqForm_Load;
             ((System.ComponentModel.ISupportInitialize)chtBlue).EndInit();
             ((System.ComponentModel.ISupportInitialize)chtGreen).EndInit();
             ((System.ComponentModel.ISupportInitialize)chtRed).EndInit();
