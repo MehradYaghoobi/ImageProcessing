@@ -35,6 +35,7 @@
             BtnStart = new Button();
             cboAlgo = new ComboBox();
             openFileDialog = new OpenFileDialog();
+            ChkROI = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)picOrginal).BeginInit();
             SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             // cboAlgo
             // 
             cboAlgo.FormattingEnabled = true;
-            cboAlgo.Location = new Point(12, 81);
+            cboAlgo.Location = new Point(12, 84);
             cboAlgo.Name = "cboAlgo";
             cboAlgo.Size = new Size(180, 23);
             cboAlgo.TabIndex = 6;
@@ -101,12 +102,24 @@
             // 
             openFileDialog.FileName = "openFileDialog";
             // 
+            // ChkROI
+            // 
+            ChkROI.AutoSize = true;
+            ChkROI.Location = new Point(12, 113);
+            ChkROI.Name = "ChkROI";
+            ChkROI.Size = new Size(79, 19);
+            ChkROI.TabIndex = 7;
+            ChkROI.Text = "Select ROI";
+            ChkROI.UseVisualStyleBackColor = true;
+            ChkROI.CheckedChanged += ChkROI_CheckedChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(514, 342);
+            Controls.Add(ChkROI);
             Controls.Add(cboAlgo);
             Controls.Add(BtnStart);
             Controls.Add(BtnImport);
@@ -131,5 +144,6 @@
         private Button BtnStart;
         private ComboBox cboAlgo;
         private OpenFileDialog openFileDialog;
+        private CheckBox ChkROI;
     }
 }

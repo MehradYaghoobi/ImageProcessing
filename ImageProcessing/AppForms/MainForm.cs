@@ -6,6 +6,7 @@ namespace ImageProcessing.AppForms
     public partial class MainForm : Form
     {
         private readonly Managers.ServiceManager _serviceManager;
+        Form form;
         public MainForm(Managers.ServiceManager serviceManager)
         {
             _serviceManager = serviceManager;
@@ -27,7 +28,7 @@ namespace ImageProcessing.AppForms
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            Form form;
+            
             Bitmap bmp = new(picOrginal.Image);
             switch (cboAlgo.SelectedItem?.ToString())
             {
@@ -89,6 +90,21 @@ namespace ImageProcessing.AppForms
             if (cboAlgo.SelectedItem.ToString() == "Thresholding" ||
                 cboAlgo.SelectedItem.ToString() == "SpatialFiltering") BtnStart.Text = "Config";
             else BtnStart.Text = "Start";
+        }
+
+        private void ChkROI_CheckedChanged(object sender, EventArgs e)
+        {
+            if (picOrginal.Image != null && ChkROI.Checked)
+            {
+                form = new RoiForm(picOrginal.Image);
+                form.Owner = this;
+                form.Show();
+            }
+        }
+
+        public void SetExtractedImage(Bitmap extractedImage)
+        {
+            picOrginal.Image = extractedImage;
         }
     }
 }
